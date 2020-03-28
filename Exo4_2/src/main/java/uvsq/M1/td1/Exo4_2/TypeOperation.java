@@ -1,5 +1,5 @@
 package uvsq.M1.td1.Exo4_2;
-
+import uvsq.M1.td1.Exo4_2.exception.*;
 
 /**
  * enum pour les quatres operations  de la calculatrice. 
@@ -39,7 +39,10 @@ public enum TypeOperation {
 
 		@Override
 		public double eval(double x, double y) {
-			
+			if(y==0)
+			{
+			 throw	new DivisionParZeroException();
+			}
 			return x / y;
 		}
 
