@@ -1,7 +1,7 @@
 package uvsq.M1.td1.Exo4_2;
 
 import java.util.Stack;
-
+import uvsq.M1.td1.Exo4_2.exception.ExceptionPileVide;
 
 
 
@@ -16,12 +16,17 @@ public class Interpreteur {
 	 /**
      * La pile qui va stocker la valeur des opérades .
      * 
-     * @see Interpreteur#Interpreteur(String,String,int,int,int,int,int)
+     * @see Interpreteur#Interpreteur()
      * @see Interpreteur#getPile()
      */
     private Stack<Double> pile;
+    /**
+    * pile des piles des operandes.
+    *@see Interpreteur#Interpreteur()
+    * @see Interpreteur#undo()
+    */
+	private Stack <Stack<Double>> hisOperande;
 
-    
     /**
      * Constructeur Interpreteur.
      * <p>
@@ -33,8 +38,23 @@ public class Interpreteur {
 	{
 
 		pile=new Stack<Double>();
-	}
+		hisOperande=new Stack<Stack<Double>>();
 
+	}
+	 
+	/**
+	* constructeur Interpreteur.
+	 * @param pile.
+	 * la pile des operandes.
+	 * @param hisOperandes.
+	 * la pile des pile des operande.
+	 * @see Interpreteur#pile
+	 * @see Interpreteur#hisOperande
+	 * */
+	public Interpreteur(Stack<Double> pile, Stack<Stack<Double>> hisOperande) {
+		this.pile = pile;
+		this.hisOperande = hisOperande;
+	}
 	/**
      * Retourne La pile dse opérades.
      * 
@@ -43,10 +63,26 @@ public class Interpreteur {
      * @see pile
      */
 	
+	
 	public Stack<Double> getPile()
 	{
 		return this.pile;
 	}
+	
+	/**
+     * Retourne La pile des piles des opérades.
+     * 
+     * @return La pile des piles des opérades.
+     * 
+     * @see hisOperande
+     */
+	
+	
+	public Stack<Stack<Double>> getHisOperande()
+	{
+		return this.hisOperande;
+	}
+	
 	
 	public void setPile(Double valeur)
 	{
@@ -68,10 +104,31 @@ public void exit()
 
 public void undo()
 {
-	if(!(this.pile.isEmpty()))
-	{
+
+	if(!(this.pile.isEmpty())&& !(this.hisOperande.isEmpty()) )
+	{		
+
+		this.hisOperande.pop();
 		this.pile.pop();
 	}
+	else if(!(this.hisOperande.isEmpty()))
+	{
+
+		this.hisOperande.pop();
+
+	}
+	else if(!(this.pile.isEmpty()))
+	{	
+
+		this.pile.pop();
+
+	}
+	else
+	{	
+		throw new ExceptionPileVide();
+	}
 }
+
+
 
 }
