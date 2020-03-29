@@ -53,8 +53,8 @@ public class SaisieRPN {
 
 			try {
 				input = scanneLigne();
-				str += input + " ";
-				System.out.println(str);
+			/*	str += input + " ";
+				System.out.println(str);*/
 			}
 			catch (Exception e) {
 				System.err.println(e.getMessage());

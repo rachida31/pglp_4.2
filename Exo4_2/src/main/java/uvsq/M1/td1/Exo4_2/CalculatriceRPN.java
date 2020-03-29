@@ -4,7 +4,8 @@ public class CalculatriceRPN {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		SaisieRPN saisie = new SaisieRPN();
+		saisie.saisie();
 	}
 
 }

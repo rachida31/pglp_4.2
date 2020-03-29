@@ -14,7 +14,7 @@ public class TestSaisieRPN {
 		public void setUp() {
 			saisieRPN = new SaisieRPN();
 		}
-		
+	
 		@Test
 		public void testSaisieRPN()
 		{
