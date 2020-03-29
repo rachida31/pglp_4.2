@@ -52,7 +52,7 @@ public class MoteurRPN extends Interpreteur{
 	     */
     public void enregistrerOp(double op1){
 
-        if ( Math.abs(op1) < MAX_VALUE && Math.abs(op1) >= MIN_VALUE) {
+        if ( Math.abs(op1) <=MAX_VALUE && Math.abs(op1) >= MIN_VALUE) {
 
            this.setPile(op1);
            Stack <Double> pileTmp=new Stack();//pour metre à jour l'historique des operandes

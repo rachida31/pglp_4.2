@@ -11,7 +11,7 @@ public class ExceptionPileVide extends IllegalArgumentException {
 	 * Constructeur de l'exception
 	 */
 	public ExceptionPileVide() {
-		super("la pile est vide nous pouvons pas effectuer cette opération");
+		super(" \n la pile est vide nous pouvons pas effectuer cette opération");
 	}
 
 }

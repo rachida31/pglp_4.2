@@ -10,7 +10,7 @@ public class ExceptionMax extends  ArithmeticException {
 	 * Constructeur de l'exception
 	 */
 	public ExceptionMax() {
-		super("Valeur absolue trop grande");
+		super(" \n Valeur absolue trop grande ");
 	}
 
 	

@@ -8,7 +8,7 @@ public class ExceptionMin extends  ArithmeticException{
 	 * Constructeur de l'exception
 	 */
 	public ExceptionMin() {
-		super("Valeur absolue trop petite");
+		super(" \n Valeur absolue trop petite");
 	}
 
 }

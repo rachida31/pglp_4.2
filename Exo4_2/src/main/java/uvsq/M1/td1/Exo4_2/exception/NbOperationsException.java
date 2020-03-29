@@ -10,7 +10,7 @@ public class NbOperationsException extends IllegalArgumentException {
 	 * Constructeur de l'exception
 	 */
 	public NbOperationsException() {
-		super("Il n'y a pas assez d'operande,pour effecuer cette operations.");
+		super(" \n Il n'y a pas assez d'operande,pour effecuer cette operations.");
 	}
 	
 
