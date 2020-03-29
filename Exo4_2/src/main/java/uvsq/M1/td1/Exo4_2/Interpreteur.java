@@ -84,9 +84,22 @@ public class Interpreteur {
 	}
 	
 	
-	public void setPile(Double valeur)
+	protected void setPile(Double valeur)
 	{
 		this.pile.push(valeur);
+	}
+	protected void setPile1(Stack<Double>valeur)
+	{
+		this.pile=valeur;
+	}
+	protected void setHisOperande(Stack<Double>valeur)
+	{
+		this.hisOperande.push(valeur);
+	}
+	
+	protected void setHisOperande2(Stack<Stack<Double>>valeur)
+	{
+		this.hisOperande=valeur;
 	}
 
 	/**
