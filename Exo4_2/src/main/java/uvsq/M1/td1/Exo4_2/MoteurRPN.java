@@ -5,7 +5,7 @@ public class MoteurRPN {
 	/**
 	 * Gestion de la pile d'opérandes
 	 * @author rachida ouchene
-	 * # INVOKER
+	 * 
 	 */
 
 	public MoteurRPN()
