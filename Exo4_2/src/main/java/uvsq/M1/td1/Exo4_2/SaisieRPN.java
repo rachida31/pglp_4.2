@@ -1,10 +1,6 @@
 package uvsq.M1.td1.Exo4_2;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import uvsq.M1.td1.Exo4_2.exception.*;
-import uvsq.M1.td1.Exo4_2.Commande.Commande;
 
 /**
  * Gère la saisie RPN.
@@ -53,8 +49,6 @@ public class SaisieRPN {
 
 			try {
 				input = scanneLigne();
-			/*	str += input + " ";
-				System.out.println(str);*/
 			}
 			catch (Exception e) {
 				System.err.println(e.getMessage());

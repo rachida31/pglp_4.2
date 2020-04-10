@@ -51,11 +51,9 @@ public class MoteurRPN extends Interpreteur{
 	 *@see MoteurRPN#MIN_VALUE
 	     */
     public void enregistrerOp(double op1){
-
-        if ( Math.abs(op1) <=MAX_VALUE && Math.abs(op1) >= MIN_VALUE) {
-
+        if ( Math.abs(op1) <=MAX_VALUE && (op1) >= MIN_VALUE) {
            this.setPile(op1);
-           Stack <Double> pileTmp=new Stack();//pour metre à jour l'historique des operandes
+           Stack <Double> pileTmp=new Stack<Double>();//pour metre à jour l'historique des operandes
            pileTmp.addAll(this.getPile());
            this.setHisOperande(pileTmp);
            
@@ -64,11 +62,13 @@ public class MoteurRPN extends Interpreteur{
         {
         	throw new ExceptionMax();
         	}
-        else  throw new ExceptionMin();
+        else { 
+        	throw new ExceptionMin();}
 
     }
 
     public void operationOp(TypeOperation operation){
+    	
         try {
             if (this.getPile().size()>= 2) {
         		this.enregistrerOp(operation.eval(this.getPile().pop(),this.getPile().pop()));

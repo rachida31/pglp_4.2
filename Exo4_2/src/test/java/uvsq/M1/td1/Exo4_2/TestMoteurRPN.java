@@ -1,13 +1,9 @@
 package uvsq.M1.td1.Exo4_2;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
-
 import org.junit.*;
-
 import uvsq.M1.td1.Exo4_2.Commande.Commande;
 import uvsq.M1.td1.Exo4_2.Commande.EnregistrerOpCommande;
 import uvsq.M1.td1.Exo4_2.Commande.OperationOpCommande;
@@ -18,7 +14,6 @@ public class TestMoteurRPN {
 	
 	private MoteurRPN moteurRPN;
 	private List<Commande> commande;
-	private TypeOperation operation;
 	@Before()
 	public void setUp() {
 		commande=new ArrayList<Commande>();
@@ -29,10 +24,10 @@ public class TestMoteurRPN {
 		commande.add(3, new EnregistrerOpCommande(moteurRPN,10.5));
 		commande.add(4, new EnregistrerOpCommande(moteurRPN,2.0));
 		commande.add(5, new EnregistrerOpCommande(moteurRPN,4.0));
-		commande.add(6, new OperationOpCommande(moteurRPN,operation.MOINS));
-		commande.add(7, new OperationOpCommande(moteurRPN,operation.PLUS));
-		commande.add(8, new OperationOpCommande(moteurRPN,operation.DIV));
-		commande.add(9, new OperationOpCommande(moteurRPN,operation.MULT));
+		commande.add(6, new OperationOpCommande(moteurRPN,TypeOperation.MOINS));
+		commande.add(7, new OperationOpCommande(moteurRPN,TypeOperation.PLUS));
+		commande.add(8, new OperationOpCommande(moteurRPN,TypeOperation.DIV));
+		commande.add(9, new OperationOpCommande(moteurRPN,TypeOperation.MULT));
 		commande.add(10, new RetournerOpCommande(moteurRPN));
 		commande.add(11, new EnregistrerOpCommande(moteurRPN,-100000.0));
 		commande.add(12, new EnregistrerOpCommande(moteurRPN,4000000000000000.0));
@@ -101,9 +96,11 @@ public class TestMoteurRPN {
 
 
 	}
-	@Test(expected=DivisionParZeroException.class)
-	public void testOperationOpCommandeExceptionZero()
+ @Test(expected=DivisionParZeroException.class)
+	public void testOperationOpCommandeExceptionZero() throws DivisionParZeroException
 	{
+	
+
 		commande.get(13).execute();	
 		commande.get(0).execute();		
 		commande.get(8).execute();		
