@@ -1,81 +1,101 @@
 package uvsq.M1.td1.Exo4_2;
+
 import uvsq.M1.td1.Exo4_2.exception.*;
 
 /**
- * enum pour les quatres operations  de la calculatrice. 
+ * enum pour les quatres operations de la calculatrice.
  * @author rachida ouchene
- * @date 28/03/2020.
  */
 public enum TypeOperation {
-
-	PLUS("+"){
-
+	/**
+	 *le plus.
+	 **/
+	PLUS("+") {
+		/**
+		 * la méthode eval pour faire le plus.
+		 **/
 		@Override
-		public double eval(double x, double y) {
+		public final double eval(final double x, final double y) {
 			return x + y;
 		}
 
-	}, 
-
-	MOINS("-"){
-
+	},
+	/**
+	 *le moins.
+	 **/
+	MOINS("-") {
+		/**
+		 * la méthode eval pour faire le moins.
+		 **/
 		@Override
-		public double eval(double x, double y) {
+		public final double eval(final double x, final double y) {
 			return x - y;
 		}
 
 	},
-
-	MULT("*"){
-
+	/**
+	 *la multiplication.
+	 **/
+	MULT("*") {
+		/**
+		 * la méthode eval pour faire la multiplication.
+		 **/
 		@Override
-		public double eval(double x, double y) {
+		public double eval(final double x, final double y) {
 			return x * y;
 		}
 
 	},
-
-	DIV("/"){
-
+	/**
+	 *La division.
+	 **/
+	DIV("/") {
+		/**
+		 * la méthode eval pour faire la division.
+		 **/
 		@Override
-		public double eval(double x, double y) {
-			if(y==0)
-			{
-			 throw	new DivisionParZeroException();
+		public final double eval(final double x, final double y) {
+			if (y == 0) {
+				throw new DivisionParZeroException();
 			}
+			else {
 			return x / y;
+			}
 		}
 
 	};
 
 	/**
-	 * La méthode abstraite qui  permets l'évaluation de l'operation et qu'est redéfinie pour chaque type d'opération.
-	 * @param x.
-	 * @param y.
-	 * @return un double est le resulta de l'exection de l'opération.
+	 * La méthode abstraite qui permets l'évaluation
+	 * de l'operation et qu'est
+	 * redéfinie pour chaque type d'opération.
+	 * @param x la valeur de x
+	 * @param y la valeur de y
+	 * @return un double est le resulta de l'exection
+	 * de l'opération.
 	 */
-	public abstract double eval(double x , double y);
-
+	public abstract double eval(final double x, final double y);
+	/**
+	 * type de l'operation.
+	 * */
 	private String typeOper;
 
-	/**
-	 * Initialisation de typeOper
-	 * @param typeOper
-	 *  @see TypeOperation#typeOper
+	/**.
+	 * Initialisation de typeOper.
+	 * @param typeOper type de l'opération.
+	 * @see TypeOperation#typeOper
 	 */
-	private TypeOperation(String typeOper) {
-		this.typeOper = typeOper; 
+	private TypeOperation(final String typeOper) {
+		this.typeOper = typeOper;
 	}
+
 	/**
-	 * récupération du type de typeOper
-	 * @return  le type de  "typeOper"
-	 *  @see typeOper
+	 * récupération du type de typeOper.
+	 * @return le type de "typeOper"
+	 * @see typeOper
 	 */
-	public String getTypeOper() {
+	public final String getTypeOper() {
 		return typeOper;
 	}
-
-
-
 
 }
